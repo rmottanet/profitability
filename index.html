@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profitability</title>
+    <style>
+        main {
+            max-width: 760px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        section {
+            margin: 10px 0;
+            padding: 1rem;
+            background-color: #111111;
+            color: #F5F5F5;
+            font-family: Arial, sans-serif;
+        }
+        
+        .result-group {
+			height: 4rem;
+			line-height: 2em;
+		}
+        
+        .input-group {
+			line-height: 2em;
+		}
+
+        footer {
+            display: flex;
+            justify-content: center;
+            padding: 1em;
+            background-color: #111111;
+            color: #007BFF;
+        }
+        
+		footer a {
+		    color: #007BFF; 
+		    text-decoration: none;
+		}
+    </style>
+</head>
+<body>
+    <main>
+        <!-- Rate Panel Section -->
+        <section id="rate-painel">
+            <div class="rate-container">
+                <div id="selicRate">Loading...</div>
+                <div id="ipcaRate">Loading...</div>
+            </div>
+        </section>
+        
+        <!-- Calculator Section -->
+        <section id="calculator">
+            <div class="calculator-container">
+                <div class="title">
+                    <h2>Profitability</h2>
+                </div>
+                
+                <!-- Results -->
+				<div class="result-group">
+					<div id="result"></div>
+					<div id="error"></div>
+				</div>
+
+                <!-- Input Group 1 -->
+                <div class="input-group">
+                    <label for="rate">Rate:</label>
+                    <input type="number" id="rate" step="0.1">
+                </div>
+                
+                <!-- Input Group 2 -->
+                <div class="input-group">
+                    <label for="term">Term:</label>
+                    <input type="number" id="term" step="1">
+                </div>
+                
+                <!-- Radio Group -->
+                <div class="input-group">
+                    <div class="radio-group">
+                        <input type="radio" id="pre" name="operation" value="pre" checked>
+                        <label for="pre">PRE</label>
+    
+                        <input type="radio" id="pos" name="operation" value="pos">
+                        <label for="pos">POS</label>
+    
+                        <input type="radio" id="ipca" name="operation" value="ipca">
+                        <label for="ipca">IPCA+</label>
+    
+                        <input type="radio" id="prop" name="operation" value="prop">
+                        <label for="prop">PROP</label>
+                    </div>
+                </div>
+                
+                <!-- Button -->
+                <button class="btn" onclick="calculateProfit()">Profit</button>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer id="footer">
+        <p>&copy; Profitability | Developed by: <a href="https://rmottanet.github.io/" target="_blank">rmotta.net:~#</a>.</p>
+    </footer>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
