@@ -1,0 +1,35 @@
+main {
+	max-width: 760px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+section {
+	margin: 10px 0;
+	padding: 1rem;
+	background-color: #111111;
+	color: #F5F5F5;
+	font-family: Arial, sans-serif;
+}
+
+.result-group {
+	height: 4rem;
+	line-height: 2em;
+}
+
+.input-group {
+	line-height: 2em;
+}
+
+footer {
+	display: flex;
+	justify-content: center;
+	padding: 1em;
+	background-color: #111111;
+	color: #007BFF;
+}
+
+footer a {
+    color: #007BFF; 
+    text-decoration: none;
+}
