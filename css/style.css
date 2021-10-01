@@ -1,3 +1,15 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; 
+    margin: 0;
+    background-color: #2C2C2C; /* Fundo cinza escuro */
+    color: #F5F5F5; /* Texto branco menos intenso */
+    font-family: Arial, sans-serif;
+}
+
 main {
 	max-width: 760px;
 	width: 100%;
@@ -5,31 +17,189 @@ main {
 }
 
 section {
-	margin: 10px 0;
+	margin: auto;
 	padding: 1rem;
-	background-color: #111111;
 	color: #F5F5F5;
 	font-family: Arial, sans-serif;
 }
 
+.rate-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 2em;
+}
+
+.rate-label {
+    text-align: center;
+    font-size: 0.8em;
+    color: #F5F5F5;
+}
+
+.selic, .ipca {
+    display: block;
+    font-size: 2em;
+    margin-bottom: .2em;
+    color: #2C2C2C;
+}
+
+.flex-container {
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.calculator-container {
+    width: 55%;
+    text-align: left;
+    background-color: #111111; /* Fundo preto não tão profundo */
+    padding: 20px; /* Adiciona algum espaçamento interno */
+}
+
+.title {
+    margin-bottom: 20px;
+    color: #F5F5F5;
+}
+
 .result-group {
-	height: 4rem;
-	line-height: 2em;
+    display: flex;
+    flex-direction: column;
+    height: 60px;
+}
+
+.result {
+    margin-bottom: 10px; /* Adiciona margem entre as linhas */
+    font-size: .8em;
+}
+
+.result-value {
+    font-size: 2em; /* Tamanho do número */
+    color: #2C2C2C; /* Cor do número */
+    /* Outros estilos conforme necessário */
+}
+
+.result-tribute {
+    font-size: 1.5em; /* Tamanho do número */
+    color: #2C2C2C; /* Cor do número */
+    /* Outros estilos conforme necessário */
+}
+
+.errors {
+	color: red;
 }
 
 .input-group {
-	line-height: 2em;
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: minmax(auto, .4fr) minmax(auto, 2fr); /* Ajuste os valores para controlar a largura relativa das colunas */
+    align-items: center; /* Centraliza verticalmente os itens */
 }
 
-footer {
-	display: flex;
-	justify-content: center;
-	padding: 1em;
-	background-color: #111111;
-	color: #007BFF;
+.input-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-footer a {
-    color: #007BFF; 
-    text-decoration: none;
+.float-input,
+.int-input {
+    padding: 8px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 25%; /* Ajuste a largura conforme necessário */
+    box-sizing: border-box;
+}
+
+.radio-group {
+    display: flex;
+}
+
+.radio-group input[type="radio"] {
+    display: none;
+}
+
+.radio-group label {
+    position: relative;
+    padding-left: 20px;
+    padding-right: 15px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.radio-group label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    border: 2px solid #0056b3;
+    border-radius: 50%;
+    background-color: #111111;
+    box-sizing: border-box;
+}
+
+.radio-group input[type="radio"]:checked + label:before {
+    background-color: #0056b3;
+}
+
+.btn {
+    background-color: #0056b3; 
+    color: #2C2C2C;
+    border: 1px solid #0056b3;
+    padding: 10px 20px;
+    margin: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Adiciona transição suave */
+}
+
+.btn:hover {
+    background-color: #1E90FF; /* Azul mais claro ao passar o mouse */
+    border: 1px solid #0056b3;
+    color: #2C2C2C; /* Texto branco ao passar o mouse */
+}
+
+.btn:active {
+    background-color: #0056b3; /* Azul mais escuro ao clicar */
+    border: 1px solid #0056b3;
+    color: #FFFFFF; /* Texto branco ao clicar */
+}
+
+.img-container {
+    width: 48%; /* Ajuste a largura conforme necessário */
+    text-align: center;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+/* Adicione estilos para a lista no footer */
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #2C2C2C;
+    color: #007BFF;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.footer li {
+    margin-right: 20px;
+}
+
+/* Estiliza os ícones */
+.fab, .fas, .fa-solid {
+    font-size: 1.2em;    
+    color: #2C2C2C; 
+    margin-right: 10px;  
 }
