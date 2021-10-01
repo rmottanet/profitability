@@ -1,22 +1,30 @@
 class Display {
   // Método para exibir informações de taxas
-  static displayRatesInfo(elementId, label, value, errorMessage) {
+// Display Taxas
+static displayRatesInfo(elementId, label, value, errorMessage) {
     const element = document.getElementById(elementId);
 
     if (errorMessage) {
-      element.innerHTML = `Erro na requisição para ${label}: ${errorMessage}`;
+        element.innerHTML = `Erro na requisição para ${label}: ${errorMessage}`;
     } else {
-      let formattedValue = value;
-      // Adiciona formatação específica para SELIC
-      if (label === 'SELIC') {
-        formattedValue = (value * 100).toFixed(2) + '%';
-      } else if (label === 'IPCA') {
-        formattedValue = value.toFixed(2) + '%';
-      }
+        let formattedValue = value;
 
-      element.innerHTML = `${label}: ${formattedValue}`;
+        // Adiciona formatação específica para SELIC
+        if (label === 'SELIC') {
+            formattedValue = (value * 100).toFixed(2) + '%';
+
+            // Adiciona classes diretamente ao conteúdo
+            element.innerHTML = `<div class="selic">${formattedValue}</div><div class="rate-label">${label}</div>`;
+        } else if (label === 'IPCA') {
+            formattedValue = value.toFixed(2) + '%';
+
+            // Adiciona classes diretamente ao conteúdo
+            element.innerHTML = `<div class="ipca">${formattedValue}</div><div class="rate-label">${label}</div>`;
+        }
     }
-  }
+}
+
+
 
   // Método para exibir resultados
   static displayResults({ profit, IR, error: errorMessage }) {
