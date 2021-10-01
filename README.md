@@ -11,7 +11,7 @@ Como um entusiasta da ciência com um forte interesse na área da economia e cla
 
 ## Diferentes Abordagens
 
-Este repositório inclui algumas abordagens para calcular a rentabilidade líquida. Cada uma dessas abordagens pode ser encontrada em branches diferentes deste repositório. 
+Este repositório inclui algumas abordagens para calcular a rentabilidade líquida. Cada uma dessas abordagens pode ser encontrada na sessão Releases. 
 
 
 ## Recursos
