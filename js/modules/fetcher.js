@@ -1,55 +1,43 @@
-// variável global para armazenar a taxa SELIC 
 class DataFetcher {
-    async fetchSELIC() {
+    async fetchTaxas() {
+		
         try {
-            const response = await fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados/ultimos/1?formato=json');
-            
-            if (!response.ok) {
-                throw new Error(`Erro ao buscar os dados da SELIC: (${response.status}) ${response.statusText}`);
-            }
-            
-            const data = await response.json();
-            const selic = data[0].valor;
-            
-            SELIC = parseFloat(selic) / 100;
+			
+            const apiUrl = 'https://profitability.deno.dev/api/taxas';
+            const response = await fetch(apiUrl);
 
-            return SELIC
+            if (!response.ok) {
+                throw new Error(`Erro na requisição à API: ${response.status} - ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            return data;
             
-	    } catch (error) {
-	        console.error('Erro na requisição SELIC:', error);
-	        throw error;
-	    }
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
     }
 
-    async fetchIPCA() {
+    async fetchResult(url) {
+		
         try {
-            const response = await fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados/ultimos/12?formato=json');
-            
+            const response = await fetch(url);
+
             if (!response.ok) {
-                throw new Error(`Erro ao buscar os dados do IPCA: (${response.status}) ${response.statusText}`);
+                throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
             }
-            
+
             const data = await response.json();
-            let ipca = 0;
-
-            for (let i = 0; i < data.length; i++) {
-                ipca += parseFloat(data[i].valor);
-            }
+            return data;
             
-            IPCA = parseFloat(ipca);
-
-            return IPCA
-            
-	    } catch (error) {
-	        console.error('Erro na requisição IPCA:', error);
-	        throw error;
-	    }
-    }
-
+        } catch (error) {
+            console.error('Erro na requisição:', error);
+            throw error;
+        }
+	}
 }
 
-// Crie uma instância da classe
 const dataFetcherInstance = new DataFetcher();
 
-// Atribua a instância a uma variável global
 window.dataFetcher = dataFetcherInstance;

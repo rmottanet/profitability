@@ -2,9 +2,9 @@
 
 # Calculadora de Rentabilidade Líquida
 
-ctrl+s :v:
+## ctrl+s :v:
 
-Este repositório contém códigos em JavaScript que calculam a rentabilidade líquida de uma aplicação financeira de renda fixa. 
+Este repositório abriga o código do frontend de uma aplicação dedicada ao cálculo da rentabilidade líquida de investimentos em renda fixa. A aplicação agora está integrada a uma robusta API desenvolvida em TypeScript, que desempenha o papel de backend. Para explorar mais sobre a infraestrutura e funcionalidades do backend, visite o repositório [inserir_link_do_repositorio_backend].
 
 Como um entusiasta da ciência com um forte interesse na área da economia e claro, na aplicação do pensamento computacional em relação a esta área, criei este projeto para colaborar com a educação.
 

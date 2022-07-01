@@ -1,91 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profitability</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-	<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <main>
-        <!-- Rate Panel Section -->
-        <section id="rate-painel">
-            <div class="rate-container">
-                <div id="selicRate">Loading...</div>
-                <div id="ipcaRate">Loading...</div>
-            </div>
-        </section>
-        
-        <!-- Calculator Section -->
-        <section id="calculator" class="flex-container">
-            <div class="calculator-container">
-                <div class="title">
-                    <h1>Profitability</h1>
-                </div>
-                
-                <!-- Results -->
-				<div class="result-group">
-					<div id="result"></div>
-					<div id="error" class="errors"></div>
-				</div>
-
-                <!-- Input Group 1 -->
-                <div class="input-group">
-                    <label for="rate">Rate:</label>
-                    <input class="float-input" type="number" id="rate" step="0.1">
-                </div>
-                
-                <!-- Input Group 2 -->
-                <div class="input-group">
-                    <label for="term">Term:</label>
-                    <input class="int-input" type="number" id="term" step="1">
-                </div>
-                
-                <!-- Radio Group -->
-                <div class="input-group">
-                    <div class="radio-group">
-                        <input type="radio" id="pre" name="operation" value="pre" checked>
-                        <label for="pre">PRE</label>
-    
-                        <input type="radio" id="pos" name="operation" value="pos">
-                        <label for="pos">POS</label>
-    
-                        <input type="radio" id="ipca" name="operation" value="ipca">
-                        <label for="ipca">IPCA+</label>
-    
-                        <input type="radio" id="prop" name="operation" value="prop">
-                        <label for="prop">PROP</label>
-                    </div>
-                </div>
-                
-                <!-- Button -->
-                <button class="btn" onclick="calculateProfit()">Profit</button>
-
-            </div>
-
-	        <!-- Image Container -->
-	        <div class="img-container">
-	            <img class="image" src="images/lion.jpg" alt="Leão Sorridente, mordendo seus rendimentos.">
-	        </div> 
-
-        </section>
-    </main>
-    
-    <!-- Footer -->
-    <footer id="footer-group" class="footer">
-        <ul>
-			<li><a href="https://rmottanet.github.io" target="_blank"><i class="fas fa-code"></i></a></li>
-	        <li><a href="https://github.com/rmottanet" target="_blank"><i class="fab fa-github"></i></a></li>
-	        <li><a href="https://gitlab.com/rmotta.net" target="_blank"><i class="fab fa-gitlab"></i></a></li>
-	        <li><a href="https://instagram.com/rmottanet" target="_blank"><i class="fab fa-instagram"></i></a></li>
-	        <li><a href="https://www.linkedin.com/in/rmottanet/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-	    </ul>
-    </footer>
-
-    <script src="js/modules/fetcher.js"></script>   
-    <script src="js/modules/calculus.js"></script>
-    <script src="js/modules/display.js"></script>  
-    <script src="js/main.js"></script>
-</body>
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>Profitability</title>
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+	    <main>
+	        <!-- Rate Panel Section -->
+	        <section id="rate-painel">
+	            <div class="rate-container">
+	                <div id="selicRate">Loading...</div>
+	                <div id="ipcaRate">Loading...</div>
+	            </div>
+	        </section>
+	        
+	        <!-- Calculator Section -->
+	        <section id="calculator" class="flex-container">
+	            <div class="calculator-container">
+	                <div class="title">
+	                    <h1>Profitability</h1>
+	                </div>
+	                
+	                <!-- Results -->
+					<div class="result-group">
+						<div id="result"></div>
+						<div id="error" class="errors"></div>
+					</div>
+	
+	                <!-- Input Group 1 -->
+	                <div class="input-group">
+	                    <label for="rate">Rate:</label>
+	                    <input class="float-input" type="number" id="rate" step="0.1">
+	                </div>
+	                
+	                <!-- Input Group 2 -->
+	                <div class="input-group">
+	                    <label for="term">Term:</label>
+	                    <input class="int-input" type="number" id="term" step="1">
+	                </div>
+	                
+	                <!-- Radio Group -->
+	                <div class="input-group">
+	                    <div class="radio-group">
+	                        <input type="radio" id="pre" name="operation" value="pre" checked>
+	                        <label for="pre">PRE</label>
+	    
+	                        <input type="radio" id="pos" name="operation" value="pos">
+	                        <label for="pos">POS</label>
+	    
+	                        <input type="radio" id="ipca" name="operation" value="ipca">
+	                        <label for="ipca">IPCA+</label>
+	    
+	                        <input type="radio" id="prop" name="operation" value="prop">
+	                        <label for="prop">PROP</label>
+	                    </div>
+	                </div>
+	                
+	                <!-- Button -->
+	                <button class="btn" onclick="calculateProfit()">Profit</button>
+	
+	            </div>
+	
+		        <!-- Image Container -->
+		        <div class="img-container">
+		            <img class="image" src="images/lion.jpg" alt="Leão Sorridente, mordendo seus rendimentos.">
+		        </div> 
+	
+	        </section>
+	    </main>
+	    
+	    <!-- Footer -->
+	    <footer id="footer-group" class="footer">
+	        <ul>
+				<li><a href="https://rmottanet.github.io" target="_blank"><i class="fas fa-code"></i></a></li>
+		        <li><a href="https://github.com/rmottanet" target="_blank"><i class="fab fa-github"></i></a></li>
+		        <li><a href="https://gitlab.com/rmotta.net" target="_blank"><i class="fab fa-gitlab"></i></a></li>
+		        <li><a href="https://instagram.com/rmottanet" target="_blank"><i class="fab fa-instagram"></i></a></li>
+		        <li><a href="https://www.linkedin.com/in/rmottanet/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+		    </ul>
+	    </footer>
+	
+	    <script src="js/modules/fetcher.js"></script>   
+	    <script src="js/modules/display.js"></script>  
+	    <script src="js/main.js"></script>
+	</body>
 </html>

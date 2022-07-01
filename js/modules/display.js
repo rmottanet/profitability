@@ -1,50 +1,35 @@
 class Display {
-  // Método para exibir informações de taxas
-// Display Taxas
-static displayRatesInfo(elementId, label, value, errorMessage) {
-    const element = document.getElementById(elementId);
+	// display Taxas
+	static displayRatesInfo(elementId, label, value, errorMessage) {
+		const element = document.getElementById(elementId);
+		
+		if (errorMessage) {
+			element.innerHTML = `Erro na requisição para ${label}: ${errorMessage}`;
+		} else {
+			element.innerHTML = `<div class="${label.toLowerCase()}">${value}</div><div class="rate-label">${label}</div>`;
+		}
+	}
 
-    if (errorMessage) {
-        element.innerHTML = `Erro na requisição para ${label}: ${errorMessage}`;
-    } else {
-        let formattedValue = value;
+    // display Results
+    static displayResults(result, operation) {
+        const resultElement = document.getElementById('result');
+        const errorElement = document.getElementById('error');
 
-        // Adiciona formatação específica para SELIC
-        if (label === 'SELIC') {
-            formattedValue = (value * 100).toFixed(2) + '%';
+        resultElement.innerHTML = '';
+        errorElement.innerHTML = '';
 
-            // Adiciona classes diretamente ao conteúdo
-            element.innerHTML = `<div class="selic">${formattedValue}</div><div class="rate-label">${label}</div>`;
-        } else if (label === 'IPCA') {
-            formattedValue = value.toFixed(2) + '%';
+        if (result.error) {
+            errorElement.innerHTML = result.error;
+        } else {
+            if (operation === 'prop') {
+                resultElement.innerHTML = result.prop;
+            } else {
+                resultElement.innerHTML = `Líquido: ${result.liquid}`;
 
-            // Adiciona classes diretamente ao conteúdo
-            element.innerHTML = `<div class="ipca">${formattedValue}</div><div class="rate-label">${label}</div>`;
+                if ('tribute' in result) {
+                    resultElement.innerHTML += `<br>IR: ${result.tribute}`;
+                }
+            }
         }
     }
-}
-
-
-
-  // Método para exibir resultados
-  static displayResults({ profit, IR, error: errorMessage }) {
-    const resultElement = document.getElementById('result');
-    const errorElement = document.getElementById('error');
-
-    // Limpar conteúdo anterior
-    resultElement.innerHTML = '';
-    errorElement.innerHTML = '';
-
-    if (errorMessage) {
-      // Exibir erro
-      errorElement.innerHTML = errorMessage;
-    } else {
-      // Exibir resultados
-      resultElement.innerHTML = `Líquido: ${parseFloat(profit).toFixed(2)}%`;
-
-      if (IR > 0) {
-        resultElement.innerHTML += `<br>IR: ${(IR * 100).toFixed(2)}%`;
-      }
-    }
-  }
 }

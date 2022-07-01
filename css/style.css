@@ -5,8 +5,8 @@ body {
     justify-content: center;
     min-height: 100vh; 
     margin: 0;
-    background-color: #2C2C2C; /* Fundo cinza escuro */
-    color: #F5F5F5; /* Texto branco menos intenso */
+    background-color: #2C2C2C;
+    color: #F5F5F5;
     font-family: Arial, sans-serif;
 }
 
@@ -52,8 +52,8 @@ section {
 .calculator-container {
     width: 55%;
     text-align: left;
-    background-color: #111111; /* Fundo preto não tão profundo */
-    padding: 20px; /* Adiciona algum espaçamento interno */
+    background-color: #111111;
+    padding: 20px;
 }
 
 .title {
@@ -68,20 +68,18 @@ section {
 }
 
 .result {
-    margin-bottom: 10px; /* Adiciona margem entre as linhas */
+    margin-bottom: 10px;
     font-size: .8em;
 }
 
 .result-value {
-    font-size: 2em; /* Tamanho do número */
-    color: #2C2C2C; /* Cor do número */
-    /* Outros estilos conforme necessário */
+    font-size: 2em;
+    color: #2C2C2C;
 }
 
 .result-tribute {
-    font-size: 1.5em; /* Tamanho do número */
-    color: #2C2C2C; /* Cor do número */
-    /* Outros estilos conforme necessário */
+    font-size: 1.5em;
+    color: #2C2C2C;
 }
 
 .errors {
@@ -91,8 +89,8 @@ section {
 .input-group {
     margin: 10px 0;
     display: grid;
-    grid-template-columns: minmax(auto, .4fr) minmax(auto, 2fr); /* Ajuste os valores para controlar a largura relativa das colunas */
-    align-items: center; /* Centraliza verticalmente os itens */
+    grid-template-columns: minmax(auto, .4fr) minmax(auto, 2fr);
+    align-items: center;
 }
 
 .input-group label {
@@ -106,7 +104,7 @@ section {
     border: 1px solid #555;
     border-radius: 5px;
     margin-bottom: 10px;
-    width: 25%; /* Ajuste a largura conforme necessário */
+    width: 25%;
     box-sizing: border-box;
 }
 
@@ -152,23 +150,23 @@ section {
     margin: 20px;
     cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Adiciona transição suave */
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
 .btn:hover {
-    background-color: #1E90FF; /* Azul mais claro ao passar o mouse */
+    background-color: #1E90FF;
     border: 1px solid #0056b3;
-    color: #2C2C2C; /* Texto branco ao passar o mouse */
+    color: #2C2C2C;
 }
 
 .btn:active {
-    background-color: #0056b3; /* Azul mais escuro ao clicar */
+    background-color: #0056b3;
     border: 1px solid #0056b3;
-    color: #FFFFFF; /* Texto branco ao clicar */
+    color: #FFFFFF;
 }
 
 .img-container {
-    width: 48%; /* Ajuste a largura conforme necessário */
+    width: 48%;
     text-align: center;
 }
 
@@ -178,7 +176,6 @@ section {
     display: inline-block;
 }
 
-/* Adicione estilos para a lista no footer */
 .footer {
     display: flex;
     justify-content: center;
@@ -197,7 +194,6 @@ section {
     margin-right: 20px;
 }
 
-/* Estiliza os ícones */
 .fab, .fas, .fa-solid {
     font-size: 1.2em;    
     color: #2C2C2C; 

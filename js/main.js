@@ -1,78 +1,47 @@
-// Variáveis globais para armazenar as taxas
-let SELIC;
-let IPCA;
-
-// On Load
+// On Load get rate
 // ==================
 window.onload = async function () {
     try {
-        const selicPromise = window.dataFetcher.fetchSELIC();
-        const ipcaPromise = window.dataFetcher.fetchIPCA();
+		
+        const taxas = await dataFetcherInstance.fetchTaxas();
 
-        const selicValue = await selicPromise.catch(error => {
-            console.error(`Erro ao obter SELIC: ${error.message}`);
-            Display.displayRatesInfo('selicRate', 'SELIC', null, `Erro ao obter SELIC: ${error.message}`);
-            return null;
-        });
-
-        const ipcaValue = await ipcaPromise.catch(error => {
-            console.error(`Erro ao obter IPCA: ${error.message}`);
-            Display.displayRatesInfo('ipcaRate', 'IPCA', null, `Erro ao obter IPCA: ${error.message}`);
-            return null;
-        });
-
-        Display.displayRatesInfo('selicRate', 'SELIC', selicValue, selicValue ? null : 'Erro ao obter SELIC.');
-        Display.displayRatesInfo('ipcaRate', 'IPCA', ipcaValue, ipcaValue ? null : 'Erro ao obter IPCA.');
+        Display.displayRatesInfo('selicRate', 'SELIC', taxas.selic, null);
+        Display.displayRatesInfo('ipcaRate', 'IPCA', taxas.ipca, null);
+        
     } catch (error) {
         console.error(error);
     }
 };
 
-
 // Main
 // ==================
 async function calculateProfit() {
     try {
-        // Obtenha valores dos inputs
+        // get inputs
         const rate = parseFloat(document.getElementById('rate').value);
         const term = parseInt(document.getElementById('term').value);
         const operation = document.querySelector('input[name="operation"]:checked').value;
 
-        // Valide as entradas
-        if (isNaN(rate) || (isNaN(term) && operation !== 'prop') || rate <= 0 || term < 0) {
-            const errorResult = { error: 'Por favor, insira números válidos maiores que zero.' };
+        // validation
+        const rateRegex = /^\d{1,3}(\.\d{1,2})?$/;
+        const termRegex = /^\d{1,4}$/;
+
+        if (!rateRegex.test(rate) || (!termRegex.test(term.toString()) && operation !== 'prop') || rate <= 0 || term < 0) {
+            const errorResult = { error: 'Por favor, insira números válidos.' };
             Display.displayResults(errorResult);
             return;
         }
 
-        // Execute a operação selecionada
-        let result;
+        // url constructor
+        const apiUrl = `https://profitability.deno.dev/api/${operation}?rate=${rate}${term ? `&term=${term}` : ''}`;
 
-        switch (operation) {
-            case 'pre':
-                result = window.Calculus.pre(rate, term);
-                break;
-            case 'pos':
-                result = window.Calculus.pos(rate, term);
-                break;
-            case 'ipca':
-                result = window.Calculus.ipcapos(rate, term);
-                break;
-            case 'prop':
-                result = window.Calculus.prop(rate);
-                break;
-            default:
-                Display.displayResults(result);
-                return;
-        }
+        const result = await dataFetcherInstance.fetchResult(apiUrl);
 
-        // Exiba os resultados
-        Display.displayResults(result);
+        Display.displayResults(result, operation);
+        
     } catch (error) {
         console.error(error);
         const errorResult = { error: 'Erro ao calcular a taxa líquida.' };
         Display.displayResults(errorResult);
     }
 }
-
-
