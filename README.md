@@ -1,3 +1,5 @@
 # profitability
 
-A minimal html page to calculate the net profitability of the CDB.
+A page to calculate the net profitability of the CDB.
+
+[lINK](https://rmottanet.github.io/profitability/)
