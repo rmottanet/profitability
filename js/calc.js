@@ -6,14 +6,12 @@ function calc() {
 	let showTrib = tribute * 100;
 
 	if (mod == 'PRE') {
-		// kind.innerHTML = "Pre";
 		tributes.innerHTML = "Tribute: " + showTrib + " %";
 		profit = calcPre(rate, tribute);
 		profits.innerHTML = "Liquid: " +  profit + " %";
 	} 
 		
 	if (mod == 'POS') {
-		// kind.innerHTML = "Pos";
 		tributes.innerHTML = "Tribute: " + showTrib + " %";
 		profit = calcPos(rate, tribute);
 		profits.innerHTML = "Liquid: " +  profit + " %";
@@ -49,15 +47,3 @@ function calcPos(rate, tribute) {
 	profit = profit * 100;
 	return profit.toFixed(2);	
 }
-
-function getSelic() {
-	let url = "https://api.bcb.gov.br/dados/serie/bcdata.sgs.1178/dados/ultimos/1?formato=json";
-	let response = fetch(url);
-	let json = response.getContentText();
-	let obj = JSON.parse(json);
-	let selic = obj[0]["valor"];
-	return selic / 100;	
-	console.log(selic);
-}
-
-
