@@ -24,7 +24,7 @@ function calcTributes(term) {
 	if (term < 181) {
 		return 22.5 / 100;
 		} else if (term > 180 && term < 361) {
-			return 17.5 / 100;
+			return 20 / 100;
 			} else if (term > 360 && term < 721) {
 				return 17.5 / 100;
 				} else {
