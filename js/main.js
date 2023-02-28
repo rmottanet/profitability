@@ -1,50 +1,83 @@
-function calc() {
-	let rate = document.getElementById("fRate").value / 100;
-	let term = document.getElementById("fTerm").value * 1;
-	let mod = document.querySelector('input[name="modal"]:checked').value;
-	let tribute = calcTributes(term);
-	let showTrib = tribute * 100;
+(function($) {
 
-	if (mod == 'PRE') {
-		kind.innerHTML = "Pre";
-		tributes.innerHTML = "Tribute: " + showTrib + " %";
-		profit = calcPre(rate, tribute);
-		profits.innerHTML = "Liquid: " +  profit + " %";
-	} 
-		
-	if (mod == 'POS') {
-		kind.innerHTML = "Pos";
-		tributes.innerHTML = "Tribute: " + showTrib + " %";
-		profit = calcPos(rate, tribute);
-		profits.innerHTML = "Liquid: " +  profit + " %";
-	}
-	
-}
+	"use strict";
 
 
-function calcTributes(term) {
-	if (term < 181) {
-		return 22.5 / 100;
-		} else if (term > 180 && term < 361) {
-			return 17.5 / 100;
-			} else if (term > 360 && term < 721) {
-				return 17.5 / 100;
-				} else {
-					return 15 / 100;
-	}	
-}
+  // Form
+	var calcForm = function() {
+		if ($('#calcForm').length > 0 ) {
+			$( "#calcForm" ).validate( {
+				rules: {
+					taxa: "required",
+					prazo: "required",
+				},
+				messages: {
+					taxa: "Insira a taxa.",
+					prazo: "Insira o prazo em dias.",
+				},
+				
+				/* submit via ajax */
+				
+				submitHandler: function(form) {		
+					var $submit = $('.submitting'),
+						waitText = 'Submitting...';
+						
+					var $button = $('.calculating'),
+						waitText = 'Submitting...';
 
+					$.ajax({   	
+				      type: "POST",
+				      url: "php/sendEmail.php",
+				      data: $(form).serialize(),
 
-function calcPre(rate, tribute) {
-	var profit = rate * (1 - tribute);
-	profit = profit * 100;
-	return profit.toFixed(2);	
-}
+				      beforeSend: function() { 
+				      	$submit.css('display', 'block').text(waitText);
+				      },
+				      success: function(msg) {
+		               if (msg == 'OK') {
+		               	$('#form-message-warning').hide();
+				            setTimeout(function(){
+		               		$('#calcForm').fadeIn();
+		               	}, 1000);
+				            setTimeout(function(){
+				               $('#form-message-success').fadeIn();   
+		               	}, 1400);
 
+		               	setTimeout(function(){
+				               $('#form-message-success').fadeOut();   
+		               	}, 8000);
 
-function calcPos(rate, tribute) {
-	let selic = 13.65 / 100;
-	var profit = (rate * selic) * (1 - tribute);
-	profit = profit * 100;
-	return profit.toFixed(2);	
-}
+		               	setTimeout(function(){
+				               $submit.css('display', 'none').text(waitText);  
+		               	}, 1400);
+
+		               	setTimeout(function(){
+		               		$( '#calcForm' ).each(function(){
+											    this.reset();
+											});
+		               	}, 1400);
+			               
+			            } else {
+			               $('#form-message-warning').html(msg);
+				            $('#form-message-warning').fadeIn();
+				            $submit.css('display', 'none');
+			            }
+				      },
+				      
+				      error: function() {
+				      	$('#form-message-warning').html("Something went wrong. Please try again.");
+				         $('#form-message-warning').fadeIn();
+				         $submit.css('display', 'none');
+				      }
+			      });    		
+		  		} // end submitHandler
+		  		
+		  		// calc
+		  		
+
+			});
+		}
+	};
+	calcForm();
+
+})(jQuery);

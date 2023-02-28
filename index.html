@@ -1,42 +1,85 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Minimal Page</title>
-		<script src="./js/main.js"></script>
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Profitability</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="./js/calc.js"></script>
 	</head>
-	
 	<body>
-		<h1>Minimal Page</h1>
-		<p>A minimal html page to calculate the net profitability of the CDB.</p>
-	
-		<br><br>
-		
-		<form id="calcForm">
-			
-			<div id="modals">
-			<input type="radio" id="modal" name="modal" value="PRE"><label for="PRE">PRE</label>
-			<input type="radio" id="modal" name="modal" value="POS" checked="checked"><label for="POS">POS</label>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row no-gutters">
+				<div class="col-md-7">
+					<div class="contact-wrap w-100 p-md-5 p-4">
+						<h3 class="mb-4">CDB Profitability</h3>
+						<div id="form-message-warning" class="mb-4"></div> 
+						<div id="form-message-success" class="mb-4">
+<!--							Your message was sent, thank you! -->
+						</div>
+						<div>
+							<p id="tributes">&nbsp;</p>
+							<p id="profits">&nbsp;</p>						
+						</div>							
+						<form id="calcForm" name="calcForm" class="calcForm">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="label" for="fRate">Rate</label>
+										<input type="number" class="form-control" name="fRate" id="fRate" placeholder="Taxa">
+									</div>
+								</div>
+								<div class="col-md-6"> 
+									<div class="form-group">
+										<label class="label" for="fTerm">Term</label>
+										<input type="number" class="form-control" name="fTerm" id="fTerm" placeholder="Prazo">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<input type="radio" id="modal" name="modal" value="PRE" />
+									    <label for="modal">PRE</label>
+									
+									    <input type="radio" id="modal" name="modal" value="POS" checked="checked" />
+									    <label for="modal">POS</label>
+									
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+<!--										<input type="submit" value="Calcula" class="btn btn-primary">
+										<div class="submitting"></div>
+									</div>
+									
+									<div class="col-md-12"> -->
+										<input type="button" value="Calcule" class="btn btn-primary" onclick="calc()">
+										
+									</div>						
+								
+								</div>
+							</div>
+						</form>
+						
+					</div>
+				</div>
+				
+				<div class="col-md-5 d-flex align-items-stretch">
+					<div class="info-wrap w-100 p-5 img" style="background-image: url(images/img.jpg);"></div>
+				</div>
+
 			</div>
-			
-			<br><br>
-		
-		    <label for="fRate">Rate:</label>
-			<input type="number" id="fRate" name="fRate" size="5"><br><br>
-			<label for="fTerm">Term:</label>
-			<input type="number" id="fTerm" name="fTerm"><br><br>
-			<input type="button" value="Calc" onclick="calc()"><br><br>
-		
-		</form>
-	  
-		<br>
-		
-		<p id="kind"></p>
-		<p id="tributes"></p>
-		<p id="profits"></p>
-		<p id="relative"></p>
-		<p id="check"></p>
-		<p id="base"></p>
-		<p id="check2"></p>
- 
-    </body>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
+	<script src="js/main.js"></script>
+
+	</body>
 </html>
+
