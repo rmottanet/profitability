@@ -7,6 +7,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="./js/calc.js"></script>
 	</head>
 	<body>
 	<section class="ftco-section">
@@ -15,12 +16,14 @@
 				<div class="col-md-7">
 					<div class="contact-wrap w-100 p-md-5 p-4">
 						<h3 class="mb-4">CDB Profitability</h3>
-						
+						<div id="form-message-warning" class="mb-4"></div> 
+						<div id="form-message-success" class="mb-4">
+<!--							Your message was sent, thank you! -->
+						</div>
 						<div>
 							<p id="tributes">&nbsp;</p>
 							<p id="profits">&nbsp;</p>						
-						</div>
-						
+						</div>							
 						<form id="calcForm" name="calcForm" class="calcForm">
 							<div class="row">
 								<div class="col-md-6">
@@ -42,12 +45,22 @@
 									
 									    <input type="radio" id="modal" name="modal" value="POS" checked="checked" />
 									    <label for="modal">POS</label>
+
+									    <input type="radio" id="modal" name="modal" value="PROP" />
+									    <label for="modal">Prop</label>									
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="form-group">
+<!--										<input type="submit" value="Calcula" class="btn btn-primary">
+										<div class="submitting"></div>
+									</div>
+									
+									<div class="col-md-12"> -->
 										<input type="button" value="Calcule" class="btn btn-primary" onclick="calc()">
+										
 									</div>						
+								
 								</div>
 							</div>
 						</form>
@@ -68,7 +81,6 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.validate.min.js"></script>
 	<script src="js/main.js"></script>
-	<script src="js/calc.js"></script>
 
 	</body>
 </html>
