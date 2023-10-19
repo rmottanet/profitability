@@ -183,7 +183,7 @@ section {
     justify-content: center;
     padding: 10px;
     background-color: #2C2C2C;
-    color: #007BFF;
+    color: #F5F5F5;
 }
 
 .footer ul {
@@ -198,6 +198,6 @@ section {
 
 .fab, .fas, .fa-solid {
     font-size: 1.2em;    
-    color: #2C2C2C; 
+    color: #F5F5F5; 
     margin-right: 10px;  
 }
